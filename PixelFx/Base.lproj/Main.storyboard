@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PixelFx" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="UFa-PJ-lLu">
+                                <rect key="frame" x="175" y="129" width="250" height="342"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sheep" translatesAutoresizingMaskIntoConstraints="NO" id="hlD-hT-UcN">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                        <color key="backgroundColor" red="0.59552556820000002" green="0.59552556820000002" blue="0.59552556820000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="6zb-2X-VHy"/>
+                                            <constraint firstAttribute="width" secondItem="hlD-hT-UcN" secondAttribute="height" multiplier="1:1" id="laF-eD-P4C"/>
+                                        </constraints>
+                                    </imageView>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oga-Vl-akS">
+                                        <rect key="frame" x="-2" y="266" width="254" height="31"/>
+                                        <connections>
+                                            <action selector="filterIntensityChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="OVv-43-aWD"/>
+                                        </connections>
+                                    </slider>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MN7-1O-u4p">
+                                        <rect key="frame" x="85" y="312" width="80" height="30"/>
+                                        <state key="normal" title="Load image"/>
+                                        <connections>
+                                            <action selector="showImagePicker" destination="BYZ-38-t0r" eventType="touchUpInside" id="bKb-C0-m7M"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.73685960286767027" green="0.8422211261010436" blue="0.98895202020202022" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Oga-Vl-akS" firstAttribute="width" secondItem="hlD-hT-UcN" secondAttribute="width" id="myo-hb-mU9"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UFa-PJ-lLu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RQ4-he-L41"/>
+                            <constraint firstItem="UFa-PJ-lLu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zxb-GF-V7n"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="filterIntensitySlider" destination="Oga-Vl-akS" id="TgW-GA-QJN"/>
+                        <outlet property="loadImageButton" destination="MN7-1O-u4p" id="mNQ-C2-hDY"/>
+                        <outlet property="mainImageView" destination="hlD-hT-UcN" id="1hB-2g-jqc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="sheep" width="640" height="545"/>
+    </resources>
+</document>
