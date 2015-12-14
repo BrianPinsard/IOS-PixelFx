@@ -25,25 +25,55 @@ class ViewController:   UIViewController,
         super.viewDidLoad()
         
         originalImage = mainImageView.image
-        context = CIContext(options: nil)
+        
+        let eaglContext = EAGLContext(API: .OpenGLES2)
+        context = CIContext(EAGLContext: eaglContext, options: nil)
+        
         currentFilter = CIFilter(name: "CISepiaTone")
         
         initFilter()
         applyFilter()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @IBAction func filterIntensityChanged() {
         print("filterIntensityChanged() called!")
         applyFilter()
     }
-
     
-    @IBAction func loadImage() {
+    func applyFilter() {
+        currentFilter.setValue(filterIntensitySlider.value, forKey: kCIInputIntensityKey)
+        
+        print(currentFilter.outputImage!.extent)
+        
+        let cgImage = context.createCGImage(currentFilter.outputImage!, fromRect: currentFilter.outputImage!.extent)
+        let filteredImage = UIImage(CGImage: cgImage)
+        
+        mainImageView.image = filteredImage;
+    }
+    
+    func initFilter() {
+        let resizedImage = resizeImage(originalImage!, size: CGFloat(450.0))
+        let coreImage = CIImage(image: resizedImage)
+        
+        currentFilter.setValue(coreImage, forKey: kCIInputImageKey)
+        
+        applyFilter()
+    }
+    
+    func resizeImage(image: UIImage, size: CGFloat) -> UIImage {
+        let imageRect = CGRectMake(0, 0, size, size)
+        let newSize = CGSize(width: size, height: size)
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.drawInRect(imageRect)
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return resizedImage!
+    }
+    
+    // Shows the ImagePicker, user can choose an image from the photo library
+    @IBAction func showImagePicker() {
         print("loadImage() called!")
         
         let imagePicker = UIImagePickerController()
@@ -55,23 +85,6 @@ class ViewController:   UIViewController,
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    func applyFilter() {
-        currentFilter.setValue(filterIntensitySlider.value, forKey: kCIInputIntensityKey)
-        
-        print(currentFilter.outputImage!.extent)
-        let cgImage = context.createCGImage(currentFilter.outputImage!, fromRect: currentFilter.outputImage!.extent)
-        let filteredImage = UIImage(CGImage: cgImage)
-        
-        mainImageView.image = filteredImage;
-    }
-    
-    func initFilter() {
-        let coreImage = CIImage(image: originalImage!)
-        currentFilter.setValue(coreImage, forKey: kCIInputImageKey)
-        
-        applyFilter()
-    }
-    
     // UIImagePickerControllerDelegate 
     // Methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -79,9 +92,6 @@ class ViewController:   UIViewController,
         
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             print("OriginalImage")
-            originalImage = pickedImage
-        } else if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-            print("EditedImage")
             originalImage = pickedImage
         } else {
             return
@@ -96,5 +106,6 @@ class ViewController:   UIViewController,
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-}
+    
 
+}

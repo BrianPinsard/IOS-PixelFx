@@ -39,7 +39,7 @@
                                         <rect key="frame" x="85" y="312" width="80" height="30"/>
                                         <state key="normal" title="Load image"/>
                                         <connections>
-                                            <action selector="loadImage" destination="BYZ-38-t0r" eventType="touchUpInside" id="i8q-lr-HrA"/>
+                                            <action selector="showImagePicker" destination="BYZ-38-t0r" eventType="touchUpInside" id="bKb-C0-m7M"/>
                                         </connections>
                                     </button>
                                 </subviews>
