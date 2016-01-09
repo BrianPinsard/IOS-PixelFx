@@ -4,7 +4,7 @@ i created this app for the IOS course in my third year at Hogeschool Gent.
 
 **Features:**
 - [x] Load image from photo library
-- [ ] Capture image with camera
+- [x] Capture image with camera
 - [ ] Image filters:
   - [x] Apply simple filter to image
   - [x] Modify intensity of simple filter
