@@ -1,5 +1,5 @@
 # IOS-PixelFx
-PixelFx is an IOS app that allows you to apply filters to images,
+PixelFx is an IOS app that allows you to apply effect filters to images,
 i created this app for the IOS course in my third year at Hogeschool Gent.
 
 **Features:**
@@ -11,7 +11,7 @@ i created this app for the IOS course in my third year at Hogeschool Gent.
   - [x] Reduce preview image size to reduce lag
   - [ ] Generate a list of filters
 - [ ] Image transition
-- [ ] Saving orignal image with applied filter (preview image size is smaller than original)
+- [ ] Saving original image with applied filter (preview image size is smaller than original)
 
 **Frameworks and technologies used:**
 
