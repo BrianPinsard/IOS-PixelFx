@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1912599F1C4158C500136AE6 /* FilterImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1912599E1C4158C500136AE6 /* FilterImage.swift */; };
 		19F1445D1C1726D300EC711E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F1445C1C1726D300EC711E /* AppDelegate.swift */; };
 		19F1445F1C1726D300EC711E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F1445E1C1726D300EC711E /* ViewController.swift */; };
 		19F144621C1726D300EC711E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F144601C1726D300EC711E /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1912599E1C4158C500136AE6 /* FilterImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterImage.swift; sourceTree = "<group>"; };
 		19F144591C1726D300EC711E /* PixelFx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelFx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F1445C1C1726D300EC711E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19F1445E1C1726D300EC711E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		191259A01C415E8600136AE6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				19F1445E1C1726D300EC711E /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		191259A11C415EEC00136AE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1912599E1C4158C500136AE6 /* FilterImage.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		19F144501C1726D300EC711E = {
 			isa = PBXGroup;
 			children = (
@@ -54,8 +72,9 @@
 		19F1445B1C1726D300EC711E /* PixelFx */ = {
 			isa = PBXGroup;
 			children = (
+				191259A11C415EEC00136AE6 /* Model */,
+				191259A01C415E8600136AE6 /* Controller */,
 				19F1445C1C1726D300EC711E /* AppDelegate.swift */,
-				19F1445E1C1726D300EC711E /* ViewController.swift */,
 				19F144601C1726D300EC711E /* Main.storyboard */,
 				19F144631C1726D300EC711E /* Assets.xcassets */,
 				19F144651C1726D300EC711E /* LaunchScreen.storyboard */,
@@ -137,6 +156,7 @@
 			files = (
 				19F1445F1C1726D300EC711E /* ViewController.swift in Sources */,
 				19F1445D1C1726D300EC711E /* AppDelegate.swift in Sources */,
+				1912599F1C4158C500136AE6 /* FilterImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
