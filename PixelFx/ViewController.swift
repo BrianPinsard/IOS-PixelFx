@@ -39,6 +39,11 @@ class ViewController:   UIViewController,
         mainImageView.image = filterImage.applyFilter(intensityValue)
     }
     
+    @IBAction func saveImage() {
+        print("saving to album")
+        filterImage.saveToPhotosAlbum()
+    }
+    
     // Shows the ImagePicker, user can choose an image from the photo library
     @IBAction func showImagePicker(sender: UIButton) {
         print("loadImage() called!")
@@ -80,6 +85,5 @@ class ViewController:   UIViewController,
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
 
 }
