@@ -12,21 +12,23 @@ class ViewController:   UIViewController,
                         UIImagePickerControllerDelegate,
                         UINavigationControllerDelegate {
 
+    @IBOutlet weak var filterNameLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var filterIntensitySlider: UISlider!
-    @IBOutlet weak var loadImageButton: UIButton!
-    @IBOutlet weak var takePictureButton: UIButton!
+    @IBOutlet weak var loadImageButton: UIBarButtonItem!
+    @IBOutlet weak var takePictureButton: UIBarButtonItem!
     
-    //var originalImage: UIImage?
     var filterImage: FilterImage!
-    
-    //var context: CIContext!
-    //var currentFilter: CIFilter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "Preview"
+        
         filterImage = FilterImage(originalImage: mainImageView.image!)
+        
+        let sliderState = filterImage.setFilter(Filters.Grayscale)
+        filterIntensitySlider.enabled = sliderState
+        
         updatePreview()
     }
 
@@ -35,14 +37,32 @@ class ViewController:   UIViewController,
     }
     
     func updatePreview() {
-        let intensityValue = filterIntensitySlider.value
+        filterNameLabel.text = getCurrentFilterName()
+        let intensityValue = filterIntensitySlider.enabled ? filterIntensitySlider.value : 0.0
         mainImageView.image = filterImage.applyFilter(intensityValue)
     }
     
-    // Shows the ImagePicker, user can choose an image from the photo library
-    @IBAction func showImagePicker(sender: UIButton) {
-        print("loadImage() called!")
+    @IBAction func saveImage() {
+        print("saving to album")
+        filterImage.saveToPhotosAlbum()
+    }
+    
+    @IBAction func unwindFromFilters(segue: UIStoryboardSegue) {
+        let filtersController = segue.sourceViewController as! FiltersTableViewController
         
+        if let selectedFilter = filtersController.selectedFilter {
+            filterIntensitySlider.enabled = filterImage.setFilter(selectedFilter)
+            updatePreview()
+        }
+    }
+    
+    private func getCurrentFilterName() -> String {
+        let filterName =  filterImage.currentFilter.name
+        return filterName.substringFromIndex(filterName.startIndex.advancedBy(2))
+    }
+    
+    // Shows the ImagePicker, user can choose an image from the photo library
+    @IBAction func showImagePicker(sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         
         //Sourcetypes: PhotoLibrary, Camera and SavedPhotosAlbum
@@ -59,7 +79,7 @@ class ViewController:   UIViewController,
         
         presentViewController(imagePicker, animated: true, completion: nil)
     }
-
+    
     // UIImagePickerControllerDelegate 
     // Methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -80,6 +100,5 @@ class ViewController:   UIViewController,
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
 
 }
