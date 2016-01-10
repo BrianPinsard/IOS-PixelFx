@@ -9,20 +9,47 @@
 import UIKit
 
 struct Filters {
-    static let Sepia = "CISepiaTone"
-    static let Vignette = "CIVignette"
-    static let Invert = "CIColorInvert"
-    static let Grayscale = "CIMaximumComponent"
+    private static let DEFAULT_COLOR_PROPERTIES = (kCIInputIntensityKey, Float(1.0))
+    private static let DEFAULT_BLUR_PROPERTIES = (kCIInputRadiusKey, Float(10.0))
+    private static let DEFAULT_ANGULAR_PROPERTIES = (kCIInputAngleKey, Float(M_PI * 2))
+    
+    //Color
+    static let SEPIA = "CISepiaTone"
+    static let VIGNETTE = "CIVignette"
+    static let INVERT = "CIColorInvert"
+    static let HUE = "CIHueAdjust"
+    //Premade
+    static let CHROME = "CIPhotoEffectChrome"
+    static let FADE = "CIPhotoEffectFade"
+    static let INSTANT = "CIPhotoEffectInstant"
+    static let NOIR = "CIPhotoEffectNoir"
+    static let PROCESS = "CIPhotoEffectProcess"
+    //Blurs
+    static let BOX_BLUR = "CIBoxBlur"
+    static let GAUSSIAN_BLUR = "CIGaussianBlur"
+    static let MOTION_BLUR = "CIMotionBlur"
+    //Weird...
+    static let KALEIDOSCOPE = "CIKaleidoscope"
     
     static let properties : [String : (inputKey: String, maxInputValue: Float)?] =
     [
-        Sepia : (kCIInputIntensityKey, 1.0),
-        Vignette : (kCIInputIntensityKey, 1.0),
-        Invert: nil,
-        Grayscale: nil
+        SEPIA:                  DEFAULT_COLOR_PROPERTIES,
+        VIGNETTE:               DEFAULT_COLOR_PROPERTIES,
+        HUE:                    DEFAULT_ANGULAR_PROPERTIES,
+        INVERT:                 nil,
+        CHROME:                 nil,
+        FADE:                   nil,
+        INSTANT:                nil,
+        NOIR:                   nil,
+        PROCESS:                nil,
+        BOX_BLUR:               DEFAULT_BLUR_PROPERTIES,
+        GAUSSIAN_BLUR:          DEFAULT_BLUR_PROPERTIES,
+        MOTION_BLUR:            DEFAULT_BLUR_PROPERTIES,
+        KALEIDOSCOPE:           DEFAULT_ANGULAR_PROPERTIES,
     ]
     
     static func getNames() -> [String] {
-        return [String] (properties.keys)
+        let filterNames = [String] (properties.keys)
+        return filterNames.sort() { $0 < $1 }
     }
 }
