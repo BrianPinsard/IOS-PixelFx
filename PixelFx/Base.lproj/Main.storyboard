@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jKB-Xt-ceT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,92 +20,208 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="UFa-PJ-lLu">
-                                <rect key="frame" x="175" y="108" width="250" height="384"/>
+                                <rect key="frame" x="163" y="82" width="275" height="436"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="F1w-iK-RLS">
-                                        <rect key="frame" x="78" y="0.0" width="94" height="26"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WMv-E0-teV">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="305"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPx-ti-N8Z">
-                                                <rect key="frame" x="0.0" y="3" width="60" height="20"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FilterName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GU-PM-kNO">
+                                                <rect key="frame" x="87" y="0.0" width="102" height="26"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRo-Cf-Gm9">
-                                                <rect key="frame" x="64" y="0.0" width="30" height="26"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sheep" translatesAutoresizingMaskIntoConstraints="NO" id="hlD-hT-UcN">
+                                                <rect key="frame" x="0.0" y="30" width="275" height="275"/>
+                                                <color key="backgroundColor" red="0.59552556820000002" green="0.59552556820000002" blue="0.59552556820000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="275" id="6zb-2X-VHy">
+                                                        <variation key="heightClass=compact" constant="200"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="width" secondItem="hlD-hT-UcN" secondAttribute="height" multiplier="1:1" id="laF-eD-P4C"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BXL-Ua-vUJ">
+                                        <rect key="frame" x="0.0" y="321" width="275" height="115"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jyQ-Dt-mow">
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="77"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coX-Ix-vw7">
+                                                        <rect key="frame" x="0.0" y="30" width="59" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="6" width="59" height="18"/>
+                                                        </variation>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oga-Vl-akS">
+                                                        <rect key="frame" x="65" y="24" width="212" height="31"/>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="65" y="0.0" width="187" height="31"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="filterIntensityChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="OVv-43-aWD"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                                <variation key="heightClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
+                                                </variation>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRo-Cf-Gm9">
+                                                <rect key="frame" x="116" y="77" width="44" height="38"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <state key="normal" title="save"/>
+                                                <variation key="heightClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="103" y="30" width="44" height="38"/>
+                                                </variation>
                                                 <connections>
                                                     <action selector="saveImage" destination="BYZ-38-t0r" eventType="touchUpInside" id="IXN-qw-hRV"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                    </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sheep" translatesAutoresizingMaskIntoConstraints="NO" id="hlD-hT-UcN">
-                                        <rect key="frame" x="0.0" y="42" width="250" height="250"/>
-                                        <color key="backgroundColor" red="0.59552556820000002" green="0.59552556820000002" blue="0.59552556820000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="6zb-2X-VHy"/>
-                                            <constraint firstAttribute="width" secondItem="hlD-hT-UcN" secondAttribute="height" multiplier="1:1" id="laF-eD-P4C"/>
+                                            <constraint firstItem="jyQ-Dt-mow" firstAttribute="width" secondItem="BXL-Ua-vUJ" secondAttribute="width" id="vyE-c1-EHu"/>
                                         </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jyQ-Dt-mow">
-                                        <rect key="frame" x="0.0" y="308" width="250" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coX-Ix-vw7">
-                                                <rect key="frame" x="0.0" y="6" width="59" height="18"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oga-Vl-akS">
-                                                <rect key="frame" x="65" y="0.0" width="187" height="31"/>
-                                                <connections>
-                                                    <action selector="filterIntensityChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="OVv-43-aWD"/>
-                                                </connections>
-                                            </slider>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="8XT-jb-02U">
-                                        <rect key="frame" x="0.0" y="354" width="250" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MN7-1O-u4p">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
-                                                <state key="normal" title="Load image"/>
-                                                <connections>
-                                                    <action selector="showImagePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7E0-fF-m0R"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFa-so-04Z">
-                                                <rect key="frame" x="153" y="0.0" width="97" height="30"/>
-                                                <state key="normal" title="Take a picture"/>
-                                                <connections>
-                                                    <action selector="showImagePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LP0-Ng-GOZ"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                        <variation key="heightClass=compact" misplaced="YES">
+                                            <rect key="frame" x="216" y="84" width="250" height="68"/>
+                                        </variation>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.73685960286767027" green="0.8422211261010436" blue="0.98895202020202022" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="8XT-jb-02U" firstAttribute="width" secondItem="UFa-PJ-lLu" secondAttribute="width" id="D7g-Y1-VCB"/>
-                                    <constraint firstItem="jyQ-Dt-mow" firstAttribute="width" secondItem="UFa-PJ-lLu" secondAttribute="width" id="eMt-88-gff"/>
+                                    <constraint firstItem="BXL-Ua-vUJ" firstAttribute="width" secondItem="hlD-hT-UcN" secondAttribute="width" multiplier="1.25" id="FB5-BD-Fra"/>
+                                    <constraint firstItem="BXL-Ua-vUJ" firstAttribute="width" secondItem="hlD-hT-UcN" secondAttribute="width" id="P0X-Ol-ZQd"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FB5-BD-Fra"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact" axis="horizontal" misplaced="YES">
+                                    <rect key="frame" x="92" y="82" width="466" height="236"/>
+                                    <mask key="constraints">
+                                        <include reference="FB5-BD-Fra"/>
+                                        <exclude reference="P0X-Ol-ZQd"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="UFa-PJ-lLu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="KTj-Oc-fKq"/>
                             <constraint firstItem="UFa-PJ-lLu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RQ4-he-L41"/>
                             <constraint firstItem="UFa-PJ-lLu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zxb-GF-V7n"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Load image" id="epu-rx-Mne">
+                            <connections>
+                                <action selector="showImagePicker:" destination="BYZ-38-t0r" id="k2o-cb-bBQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="1nc-Hx-jLH"/>
+                        <barButtonItem title="Take a picture" id="cfF-A6-aV5">
+                            <connections>
+                                <action selector="showImagePicker:" destination="BYZ-38-t0r" id="IpO-Ba-9FG"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="ARB-pD-KxX">
+                        <barButtonItem key="rightBarButtonItem" title="Select filter" id="Lln-LX-sCa">
+                            <connections>
+                                <segue destination="Ymp-Bv-xyv" kind="show" id="ycA-Vn-qoQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="filterIntensitySlider" destination="Oga-Vl-akS" id="TgW-GA-QJN"/>
-                        <outlet property="loadImageButton" destination="MN7-1O-u4p" id="iS5-VN-Rbw"/>
+                        <outlet property="filterNameLabel" destination="4GU-PM-kNO" id="Cap-wi-Jec"/>
+                        <outlet property="loadImageButton" destination="epu-rx-Mne" id="dl4-A4-QAJ"/>
                         <outlet property="mainImageView" destination="hlD-hT-UcN" id="1hB-2g-jqc"/>
-                        <outlet property="takePictureButton" destination="oFa-so-04Z" id="f4y-2D-Bng"/>
+                        <outlet property="takePictureButton" destination="cfF-A6-aV5" id="cXk-VK-BC8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="998" y="218"/>
+        </scene>
+        <!--Filters Table View Controller-->
+        <scene sceneID="RhV-rr-UZ7">
+            <objects>
+                <tableViewController id="Ymp-Bv-xyv" customClass="FiltersTableViewController" customModule="PixelFx" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="prr-aT-IDA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterCell" textLabel="RP9-Es-Xb0" detailTextLabel="SCv-Me-ZYY" style="IBUITableViewCellStyleValue1" id="E7o-uh-Ktr">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E7o-uh-Ktr" id="P8s-XC-DWB">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RP9-Es-Xb0">
+                                            <rect key="frame" x="15" y="12" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SCv-Me-ZYY">
+                                            <rect key="frame" x="543" y="12" width="42" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ymp-Bv-xyv" id="jHb-YI-QvS"/>
+                            <outlet property="delegate" destination="Ymp-Bv-xyv" id="fba-fx-k7N"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="eId-JR-gy6"/>
+                        <barButtonItem title="choose filter" id="D4Z-sD-Mnp">
+                            <connections>
+                                <segue destination="FD7-qP-ObE" kind="unwind" unwindAction="unwindFromFilters:" id="NsO-Qr-qf7"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BoY-0w-jrr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FD7-qP-ObE" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="998" y="951"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="udw-Pd-ked">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="jKB-Xt-ceT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BPR-CA-Kj9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="I4l-YW-pBT">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wnW-aG-bZh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VaH-4l-5Oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="186" y="218"/>
         </scene>

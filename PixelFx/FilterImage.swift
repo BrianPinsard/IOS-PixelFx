@@ -12,16 +12,16 @@ class FilterImage {
     var originalImage: UIImage
     
     var context: CIContext
+    
     var currentFilter: CIFilter!
+    var filterIntensityMultiplier: Float?
+    var filterInputKey: String?
     
     init(originalImage: UIImage) {
         self.originalImage = originalImage
         
         let eaglContext = EAGLContext(API: .OpenGLES2)
         context = CIContext(EAGLContext: eaglContext, options: nil)
-        
-        currentFilter = CIFilter(name: "CISepiaTone") //TODO: dynamic filter
-        initImageAndFilter()
     }
     
     func setImage(originalImage: UIImage) {
@@ -29,8 +29,28 @@ class FilterImage {
         initImageAndFilter()
     }
     
+    func setFilter(filterName: String) -> Bool {
+        currentFilter = CIFilter(name: filterName)
+        initImageAndFilter()
+        
+        let filterProperties = Filters.properties[filterName]!
+        
+        if filterProperties != nil {
+            filterInputKey = filterProperties!.inputKey
+            filterIntensityMultiplier = filterProperties!.maxInputValue
+        } else {
+            filterInputKey = nil
+            filterIntensityMultiplier = nil
+            return false
+        }
+        
+        return true
+    }
+    
     func applyFilter(intensityValue: Float) -> UIImage {
-        currentFilter.setValue(intensityValue, forKey: kCIInputIntensityKey)
+        if let inputKey = filterInputKey, let intensityMultiplier = filterIntensityMultiplier {
+            currentFilter.setValue(intensityValue * intensityMultiplier, forKey: inputKey)
+        }
         
         let cgImage = context.createCGImage(currentFilter.outputImage!, fromRect: currentFilter.outputImage!.extent)
         let filteredImage = UIImage(CGImage: cgImage)
@@ -58,11 +78,14 @@ class FilterImage {
     }
     
     func saveToPhotosAlbum() {
-        let filter = CIFilter(name: "CISepiaTone")!
+        let filter = CIFilter(name: currentFilter.name)!
         let coreImage = CIImage(image: originalImage)
         
         filter.setValue(coreImage, forKey: kCIInputImageKey)
-        filter.setValue(currentFilter.valueForKey(kCIInputIntensityKey), forKey: kCIInputIntensityKey)
+        
+        if let inputKey = filterInputKey {
+            filter.setValue(currentFilter.valueForKey(inputKey), forKey: inputKey)
+        }
         
         let cgImage = context.createCGImage(filter.outputImage!, fromRect: filter.outputImage!.extent)
         let filteredImage = UIImage(CGImage: cgImage, scale: 1.0, orientation: originalImage.imageOrientation)  // Fix for random orientation swap!
