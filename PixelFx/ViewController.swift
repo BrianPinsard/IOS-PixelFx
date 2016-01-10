@@ -26,7 +26,7 @@ class ViewController:   UIViewController,
         
         filterImage = FilterImage(originalImage: mainImageView.image!)
         
-        let sliderState = filterImage.setFilter(Filters.Grayscale)
+        let sliderState = filterImage.setFilter(Filters.SEPIA)
         filterIntensitySlider.enabled = sliderState
         
         updatePreview()
@@ -37,7 +37,7 @@ class ViewController:   UIViewController,
     }
     
     func updatePreview() {
-        filterNameLabel.text = getCurrentFilterName()
+        filterNameLabel.text = CIFilter.localizedNameForFilterName(filterImage.currentFilter.name)
         let intensityValue = filterIntensitySlider.enabled ? filterIntensitySlider.value : 0.0
         mainImageView.image = filterImage.applyFilter(intensityValue)
     }
@@ -54,11 +54,6 @@ class ViewController:   UIViewController,
             filterIntensitySlider.enabled = filterImage.setFilter(selectedFilter)
             updatePreview()
         }
-    }
-    
-    private func getCurrentFilterName() -> String {
-        let filterName =  filterImage.currentFilter.name
-        return filterName.substringFromIndex(filterName.startIndex.advancedBy(2))
     }
     
     // Shows the ImagePicker, user can choose an image from the photo library

@@ -26,12 +26,26 @@ class FiltersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("FilterCell", forIndexPath: indexPath)
         
         let filterName = filterNames[indexPath.row]
-        cell.textLabel?.text = filterName.substringFromIndex(filterName.startIndex.advancedBy(2))
+        cell.textLabel?.text = CIFilter.localizedNameForFilterName(filterName)
         
         let properties = Filters.properties[filterName]!
         cell.detailTextLabel?.text = properties != nil ? "Adjustable" : "Basic"
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        let index = indexPath.row
+        let infoFilter = filterNames[index]
+        
+        let alertController = UIAlertController(
+            title: (CIFilter.localizedNameForFilterName(infoFilter) ?? "Unknown") + " details",
+            message: CIFilter.localizedDescriptionForFilterName(infoFilter),
+            preferredStyle: UIAlertControllerStyle.Alert
+        )
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
