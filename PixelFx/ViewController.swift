@@ -39,6 +39,7 @@ class ViewController:   UIViewController,
     func updatePreview() {
         filterNameLabel.text = CIFilter.localizedNameForFilterName(filterImage.currentFilter.name)
         let intensityValue = filterIntensitySlider.enabled ? filterIntensitySlider.value : 0.0
+        
         mainImageView.image = filterImage.applyFilter(intensityValue)
     }
     
@@ -52,7 +53,36 @@ class ViewController:   UIViewController,
         
         if let selectedFilter = filtersController.selectedFilter {
             filterIntensitySlider.enabled = filterImage.setFilter(selectedFilter)
+            
+            if(!filterIntensitySlider.enabled) {
+                    setSliderValue(0.0)
+            }
+            
             updatePreview()
+        }
+    }
+    
+    func setSliderValue(intensityValue: Float) {
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.filterIntensitySlider.setValue(intensityValue, animated: true)
+        })
+    }
+    
+    // Designate this viewcontroller as first responder to handle motion events
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    // Handling a motion event
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake && filterIntensitySlider.enabled {
+            print("shake shake shake!")
+            let intensityValue = filterIntensitySlider.value
+            let shakeValue: Float = intensityValue > (1 - intensityValue) ? 0.0 : 1.0
+            
+            setSliderValue(shakeValue)
+            
+            filterIntensityChanged()
         }
     }
     
