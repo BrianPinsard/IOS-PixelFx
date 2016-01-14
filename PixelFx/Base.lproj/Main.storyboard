@@ -146,7 +146,7 @@
         <!--Filters Table View Controller-->
         <scene sceneID="RhV-rr-UZ7">
             <objects>
-                <tableViewController id="Ymp-Bv-xyv" customClass="FiltersTableViewController" customModule="PixelFx" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="formSheet" id="Ymp-Bv-xyv" customClass="FiltersTableViewController" customModule="PixelFx" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="prr-aT-IDA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,7 +195,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BoY-0w-jrr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="FD7-qP-ObE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="998" y="1090.5"/>
+            <point key="canvasLocation" x="1810" y="218"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="udw-Pd-ked">

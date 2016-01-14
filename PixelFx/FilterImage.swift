@@ -89,7 +89,7 @@ class FilterImage {
         
         let cgImage = context.createCGImage(filter.outputImage!, fromRect: filter.outputImage!.extent)
         let filteredImage = UIImage(CGImage: cgImage, scale: 1.0, orientation: originalImage.imageOrientation)  // Fix for random orientation swap!
-        
+
         UIImageWriteToSavedPhotosAlbum(filteredImage, nil, nil, nil)
     }
 }
