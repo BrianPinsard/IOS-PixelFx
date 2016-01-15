@@ -28,7 +28,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FilterName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GU-PM-kNO">
                                                 <rect key="frame" x="87" y="0.0" width="102" height="26"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=compact" misplaced="YES">
                                                     <rect key="frame" x="49" y="0.0" width="102" height="26"/>
@@ -56,29 +56,23 @@
                                         <rect key="frame" x="0.0" y="321" width="275" height="115"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jyQ-Dt-mow">
-                                                <rect key="frame" x="0.0" y="0.0" width="275" height="77"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="115"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coX-Ix-vw7">
-                                                        <rect key="frame" x="0.0" y="30" width="59" height="18"/>
+                                                        <rect key="frame" x="0.0" y="49" width="59" height="18"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                        <nil key="highlightedColor"/>
+                                                        <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oga-Vl-akS">
-                                                        <rect key="frame" x="65" y="24" width="212" height="31"/>
+                                                        <rect key="frame" x="65" y="43" width="212" height="31"/>
+                                                        <color key="tintColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
                                                             <action selector="filterIntensityChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="OVv-43-aWD"/>
                                                         </connections>
                                                     </slider>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRo-Cf-Gm9">
-                                                <rect key="frame" x="116" y="77" width="44" height="38"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                <state key="normal" title="save"/>
-                                                <connections>
-                                                    <action selector="saveImage" destination="BYZ-38-t0r" eventType="touchUpInside" id="IXN-qw-hRV"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="jyQ-Dt-mow" firstAttribute="width" secondItem="BXL-Ua-vUJ" secondAttribute="width" id="vyE-c1-EHu"/>
@@ -104,7 +98,8 @@
                                 </variation>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="UFa-PJ-lLu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="KTj-Oc-fKq"/>
                             <constraint firstItem="UFa-PJ-lLu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RQ4-he-L41"/>
@@ -112,20 +107,26 @@
                         </constraints>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Load image" id="epu-rx-Mne">
+                        <barButtonItem image="icon_photo_library" id="epu-rx-Mne">
                             <connections>
                                 <action selector="showImagePicker:" destination="BYZ-38-t0r" id="k2o-cb-bBQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="1nc-Hx-jLH"/>
-                        <barButtonItem title="Take a picture" id="cfF-A6-aV5">
+                        <barButtonItem image="icon_camera" id="cfF-A6-aV5">
                             <connections>
                                 <action selector="showImagePicker:" destination="BYZ-38-t0r" id="IpO-Ba-9FG"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9cU-qa-7cw"/>
+                        <barButtonItem image="icon_save" id="xJC-vs-qG8">
+                            <connections>
+                                <action selector="saveImage" destination="BYZ-38-t0r" id="QbK-T3-ZT6"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="ARB-pD-KxX">
-                        <barButtonItem key="rightBarButtonItem" title="Select filter" id="Lln-LX-sCa">
+                        <barButtonItem key="rightBarButtonItem" image="icon_filter" id="Lln-LX-sCa">
                             <connections>
                                 <segue destination="Ymp-Bv-xyv" kind="show" id="ycA-Vn-qoQ"/>
                             </connections>
@@ -136,6 +137,7 @@
                         <outlet property="filterNameLabel" destination="4GU-PM-kNO" id="Cap-wi-Jec"/>
                         <outlet property="loadImageButton" destination="epu-rx-Mne" id="dl4-A4-QAJ"/>
                         <outlet property="mainImageView" destination="hlD-hT-UcN" id="1hB-2g-jqc"/>
+                        <outlet property="saveImageButton" destination="xJC-vs-qG8" id="3W1-YP-yRg"/>
                         <outlet property="takePictureButton" destination="cfF-A6-aV5" id="cXk-VK-BC8"/>
                     </connections>
                 </viewController>
@@ -147,10 +149,12 @@
         <scene sceneID="RhV-rr-UZ7">
             <objects>
                 <tableViewController modalPresentationStyle="formSheet" id="Ymp-Bv-xyv" customClass="FiltersTableViewController" customModule="PixelFx" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="prr-aT-IDA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="prr-aT-IDA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="FilterCell" textLabel="RP9-Es-Xb0" detailTextLabel="SCv-Me-ZYY" style="IBUITableViewCellStyleValue1" id="E7o-uh-Ktr">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
@@ -163,18 +167,19 @@
                                             <rect key="frame" x="15" y="12" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SCv-Me-ZYY">
                                             <rect key="frame" x="511" y="12" width="42" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="0.5" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -184,7 +189,7 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="eId-JR-gy6"/>
-                        <barButtonItem title="choose filter" id="D4Z-sD-Mnp">
+                        <barButtonItem image="icon_checkmark" id="D4Z-sD-Mnp">
                             <connections>
                                 <segue destination="FD7-qP-ObE" kind="unwind" unwindAction="unwindFromFilters:" id="NsO-Qr-qf7"/>
                             </connections>
@@ -202,14 +207,17 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="jKB-Xt-ceT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BPR-CA-Kj9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="BPR-CA-Kj9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="I4l-YW-pBT">
                         <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                     </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wnW-aG-bZh"/>
@@ -221,6 +229,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_camera" width="25" height="25"/>
+        <image name="icon_checkmark" width="26" height="26"/>
+        <image name="icon_filter" width="26" height="26"/>
+        <image name="icon_photo_library" width="26" height="26"/>
+        <image name="icon_save" width="26" height="26"/>
         <image name="sheep" width="640" height="545"/>
     </resources>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "sheep.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "SLR Camera Filled-50.png",
       "scale" : "2x"
     },
     {

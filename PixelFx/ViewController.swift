@@ -15,8 +15,10 @@ class ViewController:   UIViewController,
     @IBOutlet weak var filterNameLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var filterIntensitySlider: UISlider!
+    
     @IBOutlet weak var loadImageButton: UIBarButtonItem!
     @IBOutlet weak var takePictureButton: UIBarButtonItem!
+    @IBOutlet weak var saveImageButton: UIBarButtonItem!
     
     var filterImage: FilterImage!
     
@@ -73,7 +75,7 @@ class ViewController:   UIViewController,
         return true
     }
     
-    // Handling a motion event
+    // Handling the shake motion event
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if motion == .MotionShake && filterIntensitySlider.enabled {
             print("shake shake shake!")
@@ -97,7 +99,7 @@ class ViewController:   UIViewController,
         case takePictureButton:
             imagePicker.sourceType = .Camera
         default:
-            imagePicker.sourceType = .PhotoLibrary
+            break
         }
         
         imagePicker.delegate = self
