@@ -31,6 +31,14 @@ class FiltersTableViewController: UITableViewController {
         let properties = Filters.properties[filterName]!
         cell.detailTextLabel?.text = properties != nil ? "Adjustable" : "Basic"
         
+        // Change the selected cell color
+        // Source: http://stackoverflow.com/questions/26895370/swift-uitableviewcell-selected-background-color-on-multiple-selection
+        let selectedBackgroundView = UIView()
+        selectedBackgroundView.backgroundColor = UIColor.grayColor()
+        cell.selectedBackgroundView = selectedBackgroundView
+        
+        cell.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.29)
+        
         return cell
     }
     
@@ -44,6 +52,9 @@ class FiltersTableViewController: UITableViewController {
             preferredStyle: UIAlertControllerStyle.Alert
         )
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        
+        alertController.view.backgroundColor = UIColor.blackColor()
+        alertController.view.tintColor = UIColor.whiteColor()
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
