@@ -37,6 +37,8 @@ class FiltersTableViewController: UITableViewController {
         selectedBackgroundView.backgroundColor = UIColor.grayColor()
         cell.selectedBackgroundView = selectedBackgroundView
         
+        cell.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.29)
+        
         return cell
     }
     

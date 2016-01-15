@@ -40,6 +40,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="275" id="6zb-2X-VHy">
                                                         <variation key="heightClass=compact" constant="200"/>
+                                                        <variation key="widthClass=regular" constant="350"/>
                                                     </constraint>
                                                     <constraint firstAttribute="width" secondItem="hlD-hT-UcN" secondAttribute="height" multiplier="1:1" id="laF-eD-P4C"/>
                                                 </constraints>
@@ -96,6 +97,7 @@
                                         <exclude reference="P0X-Ol-ZQd"/>
                                     </mask>
                                 </variation>
+                                <variation key="widthClass=regular" axis="horizontal"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
@@ -154,6 +156,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="0.73999999999999999" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="FilterCell" textLabel="RP9-Es-Xb0" detailTextLabel="SCv-Me-ZYY" style="IBUITableViewCellStyleValue1" id="E7o-uh-Ktr">
@@ -179,7 +182,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.28999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
