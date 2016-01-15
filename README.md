@@ -16,3 +16,4 @@ i created this app for the IOS course in my third year at Hogeschool Gent.
 
 - *Core image*: image processing.
 - *UIImagePickerController*: choosing images from the photo library and taking pictures with the camera. 
+- *UINavigationController*: manages the navigation.
