@@ -47,6 +47,10 @@ class FilterImage {
         return true
     }
     
+    func getName() -> String {
+        return CIFilter.localizedNameForFilterName(currentFilter.name)!
+    }
+    
     func applyFilter(intensityValue: Float) -> UIImage {
         if let inputKey = filterInputKey, let intensityMultiplier = filterIntensityMultiplier {
             currentFilter.setValue(intensityValue * intensityMultiplier, forKey: inputKey)
@@ -77,7 +81,7 @@ class FilterImage {
         return resizedImage
     }
     
-    func saveToPhotosAlbum() {
+    func getOriginalFilteredImage() -> UIImage {
         let filter = CIFilter(name: currentFilter.name)!
         let coreImage = CIImage(image: originalImage)
         
@@ -90,6 +94,6 @@ class FilterImage {
         let cgImage = context.createCGImage(filter.outputImage!, fromRect: filter.outputImage!.extent)
         let filteredImage = UIImage(CGImage: cgImage, scale: 1.0, orientation: originalImage.imageOrientation)  // Fix for random orientation swap!
 
-        UIImageWriteToSavedPhotosAlbum(filteredImage, nil, nil, nil)
+        return filteredImage
     }
 }

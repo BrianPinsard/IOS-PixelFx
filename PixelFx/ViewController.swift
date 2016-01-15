@@ -47,7 +47,30 @@ class ViewController:   UIViewController,
     
     @IBAction func saveImage() {
         print("saving to album")
-        filterImage.saveToPhotosAlbum()
+        let originalFilteredImage = filterImage.getOriginalFilteredImage()
+        UIImageWriteToSavedPhotosAlbum(originalFilteredImage, self, "originalFilteredImage:savedWithError:contextInfo:", nil)
+    }
+    
+    func originalFilteredImage(image: UIImage, savedWithError: NSError, contextInfo: UnsafePointer<Void>) {
+        var message: String
+        
+        if (savedWithError as NSError?) != nil {
+            message = "Something went wrong while saving the image"
+        } else {
+            message = "Image has been sucessfully saved to your photo album"
+        }
+        
+        let alertController = UIAlertController(
+            title: filterImage.getName() + " image",
+            message: message,
+            preferredStyle: UIAlertControllerStyle.Alert
+        )
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        
+        alertController.view.backgroundColor = UIColor.blackColor()
+        alertController.view.tintColor = UIColor.whiteColor()
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     @IBAction func unwindFromFilters(segue: UIStoryboardSegue) {
